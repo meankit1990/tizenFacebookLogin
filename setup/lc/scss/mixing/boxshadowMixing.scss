@@ -1,9 +1,0 @@
-@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
-  @if $inset {
-    @include vendor-prefixes(box-shadow, inset $top $left $blur $color);
-    box-shadow: inset $top $left $blur $color;
-  } @else {
-    @include vendor-prefixes(box-shadow, $top $left $blur $color);
-    box-shadow: $top $left $blur $color;
-  }
-}
