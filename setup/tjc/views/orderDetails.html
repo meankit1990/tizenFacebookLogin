@@ -1,0 +1,119 @@
+<header>
+	<ul class="tab-menu order-tab">
+		<li><a href="javascript:void(0)" class="active"><span>1.</span>Address</a></li>
+		<li><a href="javascript:void(0)" class="active"><span>2.</span>Order</a></li>
+		<li><a href="javascript:void(0)"><span>3.</span>Payment</a></li>
+	</ul>
+</header>
+<div class="tab-content">
+	<div class="order-coupon">
+		<div class="order-coupon-form">
+			<form method="post" action="#">
+				<ul>
+					<li class="form-field {{errorCoupon}}"><span class="hide">{{codeError}}</span>
+						<a href="javascript:void(0)" id="orderCoupon"
+						navigatable-with-keyboard ng-disabled="{{disableOrderCoupon}}"
+						tag="orderDetails" ng-click="openKeyboard()"
+						down="orderDetails.orderCredits" right="next" class="div-focus">
+
+							<input class="form-input {{disableCoupon}}" type="text"
+							ng-model="couponCode"
+							ng-class="{'coupon-valid' : orderCouponState==1, '' : orderCouponState==0, 'coupon-invalid' : orderCouponState==-1}"
+							placeholder="ENTER VOUCHER CODE" onfocus="this.placeholder = ''"
+							onblur="this.placeholder = 'ENTER VOUCHER CODE'" />
+					</a> <a href="javascript:vaid(0);" id="removeCode"
+						navigatable-with-keyboard class="close" tag="orderDetails"
+						down="orderDetails.orderCredits" left="prev"
+						ng-style="removeCodeStyle" ng-click="removeCode()"> <svg
+								class="close-icon" xmlns="http://www.w3.org/2000/svg"
+								width="34.47" height="34.47" viewBox="0 0 34.47 34.47">
+							  <path id="ic_close.svg" class="white-icon"
+									d="M1715.09,1751.81l-8.53-8.53,8.53-8.53a2.813,2.813,0,0,0,0-3.95l-3.95-3.95a2.813,2.813,0,0,0-3.95,0l-8.53,8.54-8.53-8.54a2.8,2.8,0,0,0-3.94,0l-3.95,3.95a2.813,2.813,0,0,0,0,3.95l8.53,8.53-8.53,8.53a2.813,2.813,0,0,0,0,3.95l3.95,3.94a2.8,2.8,0,0,0,3.94,0l8.53-8.53,8.53,8.53a2.813,2.813,0,0,0,3.95,0l3.95-3.94a2.813,2.813,0,0,0,0-3.95h0Z"
+									transform="translate(-1681.44 -1726.03)" />
+							</svg>
+					</a></li>
+
+					<li class="form-field {{errorCredit}}"><span class="hide">{{couponError}}</span>
+						<a href="javascript:void(0)" ng-show="isLC" ng-style="hideCredit"
+						id="orderCredits" navigatable-with-keyboard tag="orderDetails"
+						ng-click="openKeyboard()" up="orderDetails.orderCoupon"
+						ng-disabled="{{disableOrderCredits}}" class="div-focus"
+						down="orderDetails.singleSkuflow" right="next"> <input
+							class="form-input {{disableCredit}}" type="text"
+							ng-model="creditAmount"
+							ng-class="{'coupon-valid' : orderCreditState==1, '' : orderCreditState==0, 'coupon-invalid' : orderCreditState==-1}"
+							placeholder="{{placeHolder}}" ng-focus="focusItem('focus')"
+							ng-blur="blurItem('blur')" />
+					</a> <a class="close" href="javascript:vaid(0);" id="removeCredit"
+						navigatable-with-keyboard left="prev" tag="orderDetails"
+						down="next" up="orderDetails.orderCoupon"
+						ng-style="removeStoreCredit" ng-click="removeCredit(true)"> <svg
+								class="close-icon" xmlns="http://www.w3.org/2000/svg"
+								width="34.47" height="34.47" viewBox="0 0 34.47 34.47">
+							  <path id="ic_close.svg" class="white-icon"
+									d="M1715.09,1751.81l-8.53-8.53,8.53-8.53a2.813,2.813,0,0,0,0-3.95l-3.95-3.95a2.813,2.813,0,0,0-3.95,0l-8.53,8.54-8.53-8.54a2.8,2.8,0,0,0-3.94,0l-3.95,3.95a2.813,2.813,0,0,0,0,3.95l8.53,8.53-8.53,8.53a2.813,2.813,0,0,0,0,3.95l3.95,3.94a2.8,2.8,0,0,0,3.94,0l8.53-8.53,8.53,8.53a2.813,2.813,0,0,0,3.95,0l3.95-3.94a2.813,2.813,0,0,0,0-3.95h0Z"
+									transform="translate(-1681.44 -1726.03)" />
+							</svg>
+					</a></li>
+				</ul>
+			</form>
+			<ul class="select-option" ng-show="showBudgetPay">
+				<li ng-click="selectOption(0)"><input type="radio"
+					id="s-option2" name="selector"> <a class="selectedradio"
+					href="javascript:void(0)" navigatable-with-keyboard
+					tag="orderDetails" up="orderDetails.orderCredits" down="next"
+					ng-style="hideBudgetPay" id="singleSkuflow">
+						<div ng-class="{check: 0==selectedOption}"></div>
+				</a>Single Payment of <span class="red-text">{{SKUPrice}}</span></li>
+				<li ng-click="selectOption(1)"><input type="radio"
+					id="s-option2" name="selector"> <a class="selectedradio"
+					href="javascript:void(0)" navigatable-with-keyboard
+					tag="orderDetails" up="prev" ng-style="hideBudgetPay" down="next"
+					id="budgetPay" last>
+						<div ng-class="{check: 1==selectedOption}"></div>
+				</a>Available on budget pay of <span class="green-text">{{noOfEmi}}x{{budgetPayPriceInitial}}</span>
+				</li>
+			</ul>
+		</div>
+		<ul class="order-description">
+			<li><span> {{totalText}} :</span> <span class="red-text">{{totalPrice}}</span></li>
+			<li ng-if="1==selectedOption">(Remaining Payment:{{remaining}})</li>
+			<li ng-if="1==selectedOption"><span class="visibility-hidden">(Remaining Payment:{{remaining}})</span></li>
+			<li ng-if="0==selectedOption">Sub total: <span>{{subTotal}}</span>
+			</li>
+			<li ng-if="1==selectedOption">Budget Pay:<span>
+					{{budgetPayPrice}}</span></li>
+			<li>Shipping GB standard: <span>{{delivery}}</span></li>
+			<li>Discount Amount: <span>{{discount}}</span></li>
+			<!-- <li>VAT: <span>{{tax}}</span></li> -->
+			<li ng-if="isLC">Store Credit: <span>{{storeCredit}}</span></li>
+		</ul>
+	</div>
+	<div class="select-item">
+		<h3 class="visibility-hidden">
+			<span class="visibility-hidden">selected items</span>
+		</h3>
+		<ul class="product-item">
+			<li ng-repeat="product in products"><a href="javascript:void(0)"
+				class="div-focus"
+				down="{{$index == products.length-1 && 'footer.continue' || 'next'}}"
+				navigatable-with-keyboard up="prev" tag="orderDetails"
+				id="list{{$index}}"> <span class="product-img">
+						<figure>
+							<img ng-src={{product.productImage}} alt="Procuct-Name"
+								class="img-default" />
+						</figure>
+				</span> <span class="product-desc">{{product.productDescription}}<br>
+						<span class="product-code">Product Code : <span>
+								{{product.stockCode}} </span>
+					</span> <span class="product-qty">Qty:<span>
+								{{product.quantity}}</span></span> <span ng-show={{isSizeAvailable}}
+						class="product-size">Option:<span>{{product.size}}</span></span>
+						<span class="product-price ">Unit Price<br>
+						<span class="red-text">{{product.price}}</span></span></a></li>
+		</ul>
+	</div>
+</div>
+
+
+

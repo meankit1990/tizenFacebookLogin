@@ -1,0 +1,72 @@
+<div class="popup-shadow">
+	<div class="product-item-popup">
+		<section>
+			<header>
+				<span class="bag-item-icon"><i class="itembag-img"> <svg
+							class="item-bag" xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 61 77" preserveAspectRatio="xMidYMid meet">
+  							<path class="white-icon"
+								d="M 60.984 66.56 L 56.621 16.912 C 56.527 15.809 55.608 14.975 54.532 14.975 L 45.555 14.975 C 45.43 6.692 38.729 0 30.5 0 C 22.271 0 15.57 6.692 15.445 14.975 L 6.468 14.975 C 5.377 14.975 4.473 15.809 4.379 16.912 L 0.015 66.56 C 0.015 66.623 0 66.686 0 66.749 C 0 72.402 5.127 77 11.439 77 L 49.561 77 C 55.873 77 61 72.402 61 66.749 C 61 66.686 61 66.623 60.984 66.56 Z M 30.5 4.252 C 36.407 4.252 41.223 9.038 41.347 14.975 L 19.653 14.975 C 19.777 9.038 24.593 4.252 30.5 4.252 Z M 49.561 72.748 L 11.439 72.748 C 7.481 72.748 4.27 70.103 4.208 66.844 L 8.385 19.242 L 15.429 19.242 L 15.429 25.698 C 15.429 26.879 16.364 27.824 17.533 27.824 C 18.702 27.824 19.637 26.879 19.637 25.698 L 19.637 19.242 L 41.347 19.242 L 41.347 25.698 C 41.347 26.879 42.282 27.824 43.451 27.824 C 44.62 27.824 45.555 26.879 45.555 25.698 L 45.555 19.242 L 52.6 19.242 L 56.792 66.844 C 56.73 70.103 53.504 72.748 49.561 72.748 Z" />
+						</svg> <span class="cart-quantity ">{{itemInBag}}</span>
+				</i>Items in bag</span> <span class="select-item-notice" ng-style="buyAllStyle">YOU
+					CANNOT EDIT/REMOVE QUANTITY INDIVIDUALLY <br />IF YOU HAVE SELECTED
+					BUY ALL
+				</span> <span ng-style="budgetAvailableStyle" class="budget-pay"><span>Also
+						available on <br> Budget Pay <span class="blue-text">
+							{{noOfEmi}}x{{currency}}{{splitPrice((qtyEach*unitPrice)/noOfEmi)}}</span>
+				</span></span>
+			</header>
+			<section>
+				<ul class="select-procuct-list">
+					<li ng-repeat="caritem in cartItems"><a
+						href="javascript:void(0)" class=""
+						down="{{$index == cartItems.length-1 && 'iteminbag.update' || 'next'}}"
+						navigatable-with-keyboard up="{{$index > 0 && 'prev' || ''}}"
+						id="list{{$index}}" tag="iteminbag"></a>
+						<ul>
+							<li>
+								<div class="product-img">
+									<img ng-src={{caritem.productImage}} alt="Procuct-Name"
+										class="img-default">
+								</div>
+								<div class="product-code">
+									<span>PRODUCT CODE</span> <br> {{caritem.stockCode}} <br>
+									{{caritem.productDescription}}
+								</div>
+							</li>
+							<li ng-show="isSizeAvailable"><span>CHOICE</span> <br>
+								{{caritem.size}}</li>
+							<li><span>QTY</span> <br> {{caritem.quantity}}</li>
+							<li><span>UNIT PRICE</span><br> <span class="price">{{caritem.price}}
+							</span></li>
+						</ul></li>
+				</ul>
+			</section>
+			<footer>
+				<ul class="product-footer clearfix">
+					<li ng-style="isOrderScreenStyle"><button class="btn grey-btn"
+							navigatable-with-keyboard tag="iteminbag" id="removeall"
+							up="iteminbag.list0" right="next" ng-click="removeItem()">{{removeButton}}</button></li>
+					<li ng-style="isOrderScreenStyle"><span class="product-add">
+							<a href="javascript:void(0)" class="mins-sign"
+							navigatable-with-keyboard tag="iteminbag" id="minus" left="prev"
+							up="iteminbag.list0" right="next" ng-click="decreaseQuantity()">
+								- </a> <span class="product-count {{alertErrorQty}}">{{qtyEach}}</span>
+							<a href="" class="plus-sign" navigatable-with-keyboard
+							tag="iteminbag" id="plus" left="prev" right="next"
+							up="iteminbag.list0" ng-click="increaseQuantity()"> + </a> <span
+							class="stock-value">In Stock <span class="white-text">{{stockValue}}</span><br>
+								<span class="red-text">{{maxlimiterror}}</span>
+						</span></li>
+					<li>(SUBTOTAL)<span class="subtotal">{{parseCurreny(qtyEach*unitPrice)[0]}}<span>{{parseCurreny(qtyEach*unitPrice)[1]}}</span></span></li>
+					<li>
+						<button class="btn" navigatable-with-keyboard tag="iteminbag"
+							ng-click="update()" up="iteminbag.list0" id="update" left="prev"
+							tabindex="0">{{buttonText}}</button>
+					</li>
+				</ul>
+			</footer>
+		</section>
+
+	</div>
+</div>

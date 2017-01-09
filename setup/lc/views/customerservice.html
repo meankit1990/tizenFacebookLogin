@@ -1,0 +1,33 @@
+<div class="myprofile-pannel">
+	<div class="customer-service">
+		<ul>
+			<li><a class="div-focus" navigatable-with-keyboard href=""
+				up="header.howtobuy" tag="help" right="stateChange"
+				state="options.terms" down="help.continue" id="customerService">Customer
+					Service</a></li>
+			<li><a class="div-focus" navigatable-with-keyboard href=""
+				up="header.howtobuy" down="next" tag="help" right="stateChange"
+				state="options.customerService" id="terms">Terms And Conditions</a></li>
+		</ul>
+		<!-- <a navigatable-with-keyboard href="" alter="help.t&c" tag="cservice"
+			id="termstext" up="scrollUp" down="scrollDown"
+			class="terms div-focus" ng-show="showTerms">
+			<p class="terms-content">{{termsText}}</p>
+		</a>
+ -->
+	</div>
+	<div class="cservice">
+		<svg xmlns="http://www.w3.org/2000/svg" class="headfone"
+			viewBox="0 0 101 96">
+	  <path id="PNG:ic_headphone.svg" class="white-icon"
+				d="M622,145.874a34.316,34.316,0,0,0-31.027-34.113A5.241,5.241,0,0,0,585.944,108H557.055a5.242,5.242,0,0,0-5.027,3.761A34.321,34.321,0,0,0,521,145.874v27.372a10.576,10.576,0,0,0,10.586,10.541h8.241a4.443,4.443,0,0,0,4.448-4.429V150.272a4.443,4.443,0,0,0-4.448-4.429h-8.241a10.559,10.559,0,0,0-6.876,2.537v-2.506a30.62,30.62,0,0,1,27.616-30.43,5.241,5.241,0,0,0,4.729,2.988h28.889a5.242,5.242,0,0,0,4.73-2.988,30.616,30.616,0,0,1,27.614,30.43v2.5a10.561,10.561,0,0,0-6.875-2.536h-8.241a4.444,4.444,0,0,0-4.448,4.429v29.086a4.444,4.444,0,0,0,4.448,4.429h8.241a10.566,10.566,0,0,0,6.877-2.536V182.6a12.7,12.7,0,0,1-12.712,12.658H583.1a6.936,6.936,0,0,0-6.676-5.054h-6.766a6.9,6.9,0,1,0,0,13.8h6.766a6.936,6.936,0,0,0,6.676-5.053h22.479A16.405,16.405,0,0,0,622,182.6Zm-81.433,4.4v29.086a0.737,0.737,0,0,1-.737.735H539.09V149.538h0.738A0.736,0.736,0,0,1,540.565,150.272Zm-8.979-.734h3.793v30.555h-3.793a6.869,6.869,0,0,1-6.876-6.847V156.384A6.869,6.869,0,0,1,531.586,149.538Zm54.358-34.8H557.055a1.522,1.522,0,1,1,0-3.044h28.889A1.522,1.522,0,1,1,585.944,114.738Zm16.49,64.62V150.272a0.737,0.737,0,0,1,.738-0.734h0.738v30.555h-0.738A0.737,0.737,0,0,1,602.434,179.358Zm-26.011,20.948h-6.766a3.206,3.206,0,1,1,0-6.412h6.766A3.206,3.206,0,1,1,576.423,200.306Zm34.99-20.213H607.62V149.538h3.793a6.869,6.869,0,0,1,6.877,6.846v16.862A6.869,6.869,0,0,1,611.413,180.093Z"
+				transform="translate(-521 -108)" />
+	</svg>
+		<p class="customer-number address-number">
+			Call <span class="green-text">{{customerCareNumber}}</span><br /> to
+			share your valuable feedback.
+		</p>
+		<button type="button" class="btn" ng-click="continueWatching()"
+			tag="help" navigatable-with-keyboard tabindex="0" id="continue"
+			up="help.customerService">CONTINUE WATCHING</button>
+	</div>

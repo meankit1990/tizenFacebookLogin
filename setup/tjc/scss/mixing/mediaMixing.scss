@@ -1,0 +1,19 @@
+$break-hd: 1280px;
+$break-fullhd: 1920px;
+$break-ultrahd: 3840px;
+$break-fullhd1: 3800px;
+@mixin respond-to($media) {
+  @if $media == high-definition {
+    @media only screen and (min-width: $break-hd) {
+      @content;
+    }
+  } @else if $media == full-high-definition {
+    @media only screen and (min-width: $break-fullhd) and (max-width: $break-fullhd1) {
+      @content;
+    }
+  } @else if $media == ultra-high-definition {
+    @media only screen and (min-width: $break-ultrahd) {
+      @content;
+    }
+  }
+}

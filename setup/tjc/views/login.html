@@ -1,0 +1,50 @@
+<p ng-style={{messageStyle}}  class="login-message">You need to Sign in or<br>
+	Register to order this product</p>
+<ul class="tab-menu" id="menu">
+	<li><a href="javascript:void(0)" class="active"
+		ng-class="loginStyle">SIGN IN</a></li>
+	<li><a href="javascript:void(0)" ng-class="registationStyle">REGISTER</a></li>
+</ul>
+
+
+<div class="tab-content">
+	<!-- <span class="customer-number">Call US AT<br> <span class="">{{customerCareNumber}}</span></span> <span class="or-border">OR</span> -->
+	<br /> <br />
+	<form class="login-form" name="loginForm">
+		<ul>
+			<div class="{{alertErrorInput}}">
+				<li class="form-field"><label class="form-label">Email
+						or phone number <span class="red-text">*</span></label> <span class="hide">{{userNameError}}</span> <a
+					href="javascript:void(0)" id="loginUserName"
+					ng-click="opneKeyBoard()" navigatable-with-keyboard tabindex="0"
+					tag="login" down="next" right="stateChange"
+					state="home.registration" left="video.videoView" class="div-focus">
+
+						<input class="form-input" placeholder="Please enter email or phone number" onfocus="this.placeholder = ''"
+						onblur="this.placeholder = 'Please enter email or phone number'" type="text" ng-model="username"
+						name="username" ng-change="saveUserName(username)" />
+				</a></li>
+			</div>
+			<div class="{{passwordErrorInput}}">
+				<li class="form-field"><label class="form-label">TJC PIN <span class="red-text">*</span></label> <span
+					class="hide">{{passwordError}}</span> <a href="javascript:void(0)"
+					navigatable-with-keyboard tag="login" ng-click="opneKeyBoard()"
+					id="pin" right="stateChange" state="home.registration"
+					left="video.videoView" down="next" up="prev" class="div-focus">
+						<input class="form-input" type="password" ng-model="password"
+						placeholder="Please enter 4 digit pin" onfocus="this.placeholder = ''"
+						onblur="this.placeholder = 'Please enter 4 digit pin'"
+						maxlength="4" ng-change="savePIN(password)" />
+				</a></li>
+			</div>
+			<li class="form-field">
+				<button type="button" class="btn" ng-click="checkLoginCred()"
+					left="video.videoView" navigatable-with-keyboard tag="login"
+					up="prev" right="next">SIGN IN</button> <a href="javascript:void(0)"
+				class="btn forget-btn" navigatable-with-keyboard tag="login"
+				ng-click="forgetPassword()" up="login.pin" right="stateChange"
+				state="home.registration" left="prev">FORGOT PIN?</a>
+			</li>
+		</ul>
+	</form>
+</div>

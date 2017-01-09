@@ -1,0 +1,118 @@
+
+<header>
+	<h2 class="thankyou-title">
+		<i class="icon-style"> <svg class="thankyou-bag-icon"
+				xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58 74">
+			  <path id="ic_tick_bag.svg" class="violet-icon"
+					d="M1147.99,170.967l-4.15-47.714a2.021,2.021,0,0,0-1.99-1.862h-8.54a14.31,14.31,0,1,0-28.62,0h-8.54a2.006,2.006,0,0,0-1.99,1.862l-4.15,47.714c0,0.06-.01.121-0.01,0.182,0,5.432,4.88,9.851,10.88,9.851h36.24c6,0,10.88-4.419,10.88-9.851A1.1,1.1,0,0,0,1147.99,170.967ZM1119,111.086a10.418,10.418,0,0,1,10.31,10.305h-20.62A10.418,10.418,0,0,1,1119,111.086Zm18.12,65.828h-36.24c-3.77,0-6.82-2.542-6.88-5.675l3.97-45.747h6.7v6.2a2,2,0,1,0,4,0v-6.2h20.64v6.2a2,2,0,1,0,4,0v-6.2h6.7l3.99,45.747C1143.94,174.372,1140.87,176.914,1137.12,176.914Z"
+					transform="translate(-1090 -107)" />
+			</svg> <svg ng-show={{showDelivery}} class="bag-tick-icon"
+				xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 24">
+				  <path id="ic_green_tick.svg" class="green-icon"
+					d="M1133,196.951L1130.13,195l-14,18.913-8.03-5.937-2.1,2.873L1116.97,219Z"
+					transform="translate(-1106 -195)" />
+				</svg> <svg ng-show={{!showDelivery}} class="bag-cross-icon"
+				xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+				  <path id="ic_cross.svg" class="red-icon"
+					d="M1052,215.6l-2.4,2.4-9.6-9.6-9.6,9.6-2.4-2.4,9.6-9.6-9.6-9.6,2.4-2.4,9.6,9.6,9.6-9.6,2.4,2.4-9.6,9.6Z"
+					transform="translate(-1028 -194)" />
+			</svg>
+		</i> {{thankYouMessage}} <span ng-style={{showOrderStatus}}>{{orderPlaceMessage}}</span>
+	</h2>
+</header>
+
+
+<div class="tab-content">
+	<div class="order-coupon">
+		<div class="order-detail">
+			<div class="order-information">
+				<h3>order information</h3>
+				<p ng-show={{!showDelivery}}>
+					<span class="red-text">Order Failure</span>
+				</p>
+				<p ng-show={{showDelivery}}>
+					Order Placed: <span>{{orderStatus}}</span><br> Order Number: <span>{{orderNumber}}</span>
+				</p>
+				<h3>Delivering to</h3>
+				<p>
+					{{userName}}<br> {{ shippingAddress }}
+				</p>
+			</div>
+
+			<!-- <ul>
+				<li>ORDER NUMBER <span class="redt-text">{{orderNumber}}</span>
+				</li>
+				<li>STATUS <span class="{{statusClass}}">{{orderStatus}}</span>
+				</li>
+				<li ng-show={{showDelivery}}>Expected  Delivery<span
+					class="red-text">{{expectedDelivery}}</span>
+				</li>
+			</ul> -->
+		</div>
+		<ul class="order-description">
+			<li><span>{{totalText}} :</span> <span
+				class="red-text total-cost"><span>{{totalDoller}}</span>{{totalCent}}</span>
+			</li>
+			<li ng-if="isBudgetPay">(Remaining Payment:{{remaining}})<br> <br></li>
+			<li ng-if="!isBudgetPay">Sub total: <span>{{subTotal}}</span>
+			</li>
+			<li ng-if="isBudgetPay">Budget Pay:<span>
+					{{budgetPayPrice}}</span></li>
+			<li>Shipping GB standard: <span>{{delivery}}</span></li>
+			<li>Discount Amount: <span>{{discount}}</span></li>
+			<!-- 			<li>VAT: <span>{{tax}}</span></li>
+ -->
+			<li ng-if="isLC">Store Credit: <span>{{storeCredit}}</span></li>
+
+		</ul>
+
+	</div>
+
+	<div class="select-item">
+		<h3 class="visibility-hidden">
+			<span class="visibility-hidden">selected items</span>
+		</h3>
+		<ul class="product-head">
+			<li>PRODUCT DETAIL</li>
+			<li>QUANTITY</li>
+			<li>UNIT PRICE</li>
+		</ul>
+		<ul class="product-item product-list-thankyou">
+			<li ng-repeat="product in products"><a href="javascript:void(0)"
+				class="div-focus focus-event" up="{{$index > 0 && 'prev' || ''}}"
+				down="{{$index == products.length-1 && 'footer.continue' || 'next'}}"
+				navigatable-with-keyboard tag="thankYou" id="list{{$index}}"></a>
+				<ul>
+					<li><span class="product-img">
+							<figure>
+								<img ng-src={{product.productImage}} alt="Procuct-Name"
+									class="img-default" />
+							</figure>
+					</span> <span class="product-desc">{{product.productDescription}}<br>
+							<span class="product-code">Item Number : <span>
+									{{product.stockCode}} </span></span> <span ng-show={{isSizeAvailable}}
+							class="product-size">Option:<span>{{product.size}}</span></span>
+					</span></li>
+					<li><span>{{product.quantity}}</span></li>
+					<li><span class="red-text">{{product.price}}</span></li>
+				</ul></li>
+			<!-- <li ng-repeat="product in products"><a href="javascript:void(0)"
+				class="div-focus"
+				down="{{$index == products.length-1 && 'footer.continue' || 'next'}}"
+				navigatable-with-keyboard up="prev" tag="thankYou"
+				id="list{{$index}}"> <span class="product-img">
+						<figure>
+							<img ng-src={{product.productImage}} alt="Procuct-Name"
+								class="img-default" />
+						</figure>
+				</span> <span class="product-desc">{{product.productDescription}}<br>
+						<span class="product-code">Product Code : <span
+							> {{product.stockCode}} </span>
+					</span> <span class="product-qty">Qty:<span >
+								{{product.quantity}}</span></span> <span ng-show={{isSizeAvailable}}
+						class="product-size">Choice:<span >{{product.size}}</span></span>
+						<span class="product-price"><span class="red-text">{{product.price}}</span></span></span>
+			</a></li> -->
+		</ul>
+	</div>
+</div>

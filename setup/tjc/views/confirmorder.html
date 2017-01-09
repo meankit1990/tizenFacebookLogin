@@ -1,0 +1,78 @@
+<div class="popup-bg">
+	<div class="product-item-popup confirm-order">
+		<h3>Confirm Your Order</h3>
+		<div class="left-side-panel">
+			<ul>
+				<li>
+					<div class="detail-img">
+						<img src="../../../images/hd/shipping-img.png" alt="Shipping Address">
+					</div>
+					<div class="detail-content">
+						<span>Shipping Address</span>
+						<address>{{shippingAddress}}</address>
+					</div>
+				</li>
+				<li>
+					<div class="detail-img">
+						<img src="../../../images/hd/billing-img.png" alt="Billing Address">
+					</div>
+					<div class="detail-content">
+						<span>Billing Address</span><br>
+						<address>{{billingAddress}}</address>
+					</div>
+				</li>
+				<li>
+					<div class="detail-img">
+						<img src="../../lc/images/hd/shippingmethod.png" alt="Payment Method">
+					</div>
+					<div class="detail-content">
+						<span>Payment Method</span>
+						<address>
+							{{userName}} <br>{{defaultCard}} {{expireOn}}
+						</address>
+						<div class="detail-content">
+				</li>
+			</ul>
+			<p class="customer-number address-number">
+				Call <span class="green-text">{{customerCareNumber}}</span> to change you
+				billing shipping address or add new payment method
+			</p>
+		</div>
+		<div class="right-side-panel">
+			<div class="select-item">
+				<ul class="product-item">
+					<li ng-repeat="product in products"><a
+						href="javascript:void(0)" class="div-focus"
+						down="{{$index == products.length-1 && 'fastBuy.confirm' || 'next'}}"
+						navigatable-with-keyboard up="prev" tag="fastBuy"
+						id="list{{$index}}"> <span class="product-img">
+								<figure>
+									<img ng-src={{product.productImage}} alt="Procuct-Name" class="img-default"  />
+								</figure>
+						</span> <span class="product-desc"> {{product.productDescription}}<br>
+								<span class="product-code">Product Code : <span
+									class="white-text"> {{product.stockCode}} </span>
+							</span> <span class="product-qty">Qty:<span class="white-text">{{product.quantity}}</span></span>
+								<span ng-show={{isSizeAvailable}} class="product-size">Size:<span
+									class="white-text">{{product.size}}</span></span> <span
+								class="product-price green-text">{{product.price}}</span>
+						</span>
+					</a></li>
+				</ul>
+			</div>
+			<ul class="product-total">
+				<li>Sub total:<span> {{subTotal}}</span></li>
+				<li>Delivery:<span> {{delivery}}</span></li>
+				<li>Tax:<span> {{tax}}</span></li>
+				<li>Discount:<span> {{discount}}</span></li>
+				<li>Store Credit:<span> {{storeCredit}}</span></li>
+			</ul>
+			<div class="total-cost">
+				Total : <span class="green-text"><span>{{totalPrice}}</span></span>
+			</div>
+			<button id="confirm" navigatable-with-keyboard tag="fastBuy"
+				tabindex="0" up="fastBuy.list0" ng-click="dialogClose('confirm')"
+				type="button" class="btn green-btn">CONFIRM</button>
+		</div>
+	</div>
+</div>

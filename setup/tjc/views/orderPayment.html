@@ -1,0 +1,49 @@
+<div>
+<header>
+	<ul class="tab-menu order-tab">
+		<li><a href="javascript:void(0)" class="active"><span>1.</span>Address</a></li>
+		<li><a href="javascript:void(0)" class="active"><span>2.</span>Order</a></li>
+		<li><a href="javascript:void(0)" class="active"><span>3.</span>Payment</a></li>
+	</ul>
+</header>
+<div class="tab-content">
+	<div class="payment-type">
+		<ul>
+			<li>
+				<ul class="head">
+					<li class="card-name">Name on card</li>
+					<li class="card-no">Your saved cards</li>
+					<li class="card-expire">Expires on</li>
+				</ul>
+			</li>
+			<li ng-repeat="card in cards" ng-click="selectedCard($index)">
+				<ul class="payment-card">
+					<li class="card-name"> 
+						 <input type="radio" id="s-option" name="selector">
+						<a class="selectedradio" href="javascript:void(0)" down="{{$index == cards.length-1 && 'orderPaymentDetails.refresh' || 'next'}}"
+						navigatable-with-keyboard up="{{$index > 0 && 'prev' || ''}}" tag="orderPaymentDetails" id="list{{$index}}">
+							<div ng-class="{check: $index==selectedIndex}"></div>
+						</a> {{card.name}}</li>
+					<li class="card-no">{{card.token}}</li>
+					<li class="card-expire">{{card.expires}}</li>
+				</ul></li>
+		</ul>
+	</div>
+	<span class="customer-number address-number">
+			To add a new payment method call<br>
+			Call {{customerCareNumber}} and click refresh
+			<span class="refresh"> <a id="refresh" href="javascript:void(0);" up="orderPaymentDetails.list0" last
+			navigatable-with-keyboard tag="orderPaymentDetails" down="footer.continue"
+			ng-click="refreshCards()">
+				<svg class="refresh-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.876 30.844">
+  <path id="ic_refresh.svg" class="violet-icon" d="M869.48,656.534a0.614,0.614,0,0,0-.451-0.191h-3.858a0.6,0.6,0,0,0-.6.462,24.566,24.566,0,0,1-1.065,2.35,10.237,10.237,0,0,1-12.516,4.179,10.364,10.364,0,0,1-3.234-2.049l2.752-2.753a1.285,1.285,0,0,0-.9-2.189h-9a1.3,1.3,0,0,0-1.286,1.285v9a1.278,1.278,0,0,0,2.19.9l2.592-2.591a15.341,15.341,0,0,0,4.891,3.154,15.067,15.067,0,0,0,5.676,1.105,14.726,14.726,0,0,0,9.6-3.345,15.613,15.613,0,0,0,5.384-8.729,0.352,0.352,0,0,0,.02-0.141A0.613,0.613,0,0,0,869.48,656.534Zm0.312-16.524a1.261,1.261,0,0,0-1.808,0l-2.612,2.591a15.58,15.58,0,0,0-4.922-3.144,15.162,15.162,0,0,0-5.705-1.114,14.834,14.834,0,0,0-9.643,3.344,15.667,15.667,0,0,0-5.424,8.729v0.141a0.652,0.652,0,0,0,.643.643h4a0.6,0.6,0,0,0,.6-0.462,24.644,24.644,0,0,1,1.065-2.351,10.248,10.248,0,0,1,8.759-4.9,9.98,9.98,0,0,1,7.011,2.753l-2.772,2.772a1.286,1.286,0,0,0,.9,2.19h9a1.3,1.3,0,0,0,1.286-1.286v-9A1.239,1.239,0,0,0,869.792,640.01Z" transform="translate(-839.312 -638.344)"/>
+</svg> REFRESH
+			</a></span>
+		</span> 
+	
+	
+</div>
+</div>
+
+
+

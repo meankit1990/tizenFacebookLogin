@@ -1,0 +1,24 @@
+<footer ng-show="footerStyle">
+	<ul class="footer">
+		<li class="footer-bag-item">
+		<a href="javascript:void(0);"
+			id="itemInBag" navigatable-with-keyboard ng-style="itemInBagStyle"
+			tag="footer" right="next" up="{{focusableIndexFromFooter}}"
+			ng-click="itemInBagClick()"> <i class="itembag-img"> <svg
+						class="item-bag" xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 61 77" preserveAspectRatio="xMidYMid meet">
+  							<path class="white-icon"
+							d="M 60.984 66.56 L 56.621 16.912 C 56.527 15.809 55.608 14.975 54.532 14.975 L 45.555 14.975 C 45.43 6.692 38.729 0 30.5 0 C 22.271 0 15.57 6.692 15.445 14.975 L 6.468 14.975 C 5.377 14.975 4.473 15.809 4.379 16.912 L 0.015 66.56 C 0.015 66.623 0 66.686 0 66.749 C 0 72.402 5.127 77 11.439 77 L 49.561 77 C 55.873 77 61 72.402 61 66.749 C 61 66.686 61 66.623 60.984 66.56 Z M 30.5 4.252 C 36.407 4.252 41.223 9.038 41.347 14.975 L 19.653 14.975 C 19.777 9.038 24.593 4.252 30.5 4.252 Z M 49.561 72.748 L 11.439 72.748 C 7.481 72.748 4.27 70.103 4.208 66.844 L 8.385 19.242 L 15.429 19.242 L 15.429 25.698 C 15.429 26.879 16.364 27.824 17.533 27.824 C 18.702 27.824 19.637 26.879 19.637 25.698 L 19.637 19.242 L 41.347 19.242 L 41.347 25.698 C 41.347 26.879 42.282 27.824 43.451 27.824 C 44.62 27.824 45.555 26.879 45.555 25.698 L 45.555 19.242 L 52.6 19.242 L 56.792 66.844 C 56.73 70.103 53.504 72.748 49.561 72.748 Z" />
+						</svg> <span class="cart-quantity {{cartEmpty}}">{{itemInBag}}</span>
+			</i> Items in bag
+		</a></li>
+		<li ng-style="itemInBagStyle" class="ordersubtotal"><span>( Total )<br>( including delivery, discounts and taxes )</span><span class="subtotal">{{doller}}<span>{{cent}}</span></span>
+		</li>
+		<li>
+			<button type="button" class="btn" navigatable-with-keyboard
+				tag="footer" left="prev" id="continue"
+				up="{{focusableIndexFromFooter}}" ng-click="orderContinue()"
+				tabindex="0">{{footerButtonText}}{{continueTime}}</button>
+		</li>
+	</ul>
+</footer>

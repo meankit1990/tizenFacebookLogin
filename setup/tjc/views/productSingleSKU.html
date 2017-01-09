@@ -1,0 +1,83 @@
+<header>
+	<form ng-style="hideTopInput" class="top-form" method="post" action="#">
+		<div class="form-field">
+			<div class="tab-content {{alertErrorInput}}">
+				<label for="username" class="form-label">TO ENABLE ORDER NOW <span
+					class="red-text">*</span></label> <span class="hide">{{inputError}}</span>
+				<a tabindex="0" id="username" class="div-focus"
+					ng-click="opneKeyBoard()" navigatable-with-keyboard
+					ng-style="hideTopInput" tag="product" down="next"
+					left="header.username" href="javascript:void(0)"> <input
+					type="text" class="form-input" ng-model="username"
+					ng-change="saveUserName(username)" placeholder="Enter Phone Number"
+					onfocus="this.placeholder = ''"
+					onblur="this.placeholder = 'Enter Phone Number'" />
+				</a>
+			</div>
+		</div>
+	</form>
+</header>
+<div class="home-content">
+	<h3>CURRENTLY SHOWING ON AIR</h3>
+
+	<div class="product-show">
+		<div class="product-details">
+			<div class="product-img">
+				<figure>
+					<img ng-src={{productImage}} alt="Procuct-Name"
+						style="height: 135px; width: 135px;" class="img-default" />
+			</div>
+			<div class="product-price">
+				Product code <span class="start-price">{{stockCode}}</span> Current
+				Price <span class="start-price">{{dollerPrice}}{{centPrice}}</span>
+			</div>
+
+		</div>
+		<div class="product-description">{{productDescription}}</div>
+	</div>
+	<div class="{{alertErrorOption}}">
+		<span class="hide">{{choiceError}}</span> <a
+			href="javascript:void(0)" class="drop-down "
+			navigatable-with-keyboard ng-style="hideSelection"
+			ng-show=showSelection tag="product" left="video.videoView"
+			tabindex="1" up="prev" down="product.plus" id="selectoption"
+			ng-click='selectChoice()'>{{selectedOption}}</a>
+	</div>
+
+	<span class="product-add"> <a href="" class="mins-sign"
+		navigatable-with-keyboard left="video.videoView" tag="product"
+		up="prev" right="next" down="product.budgetpay"
+		ng-click="decreaseQuantity()"> <i class="icons-style"> <svg
+					class="minus-sign-icon" xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 28 2">
+			   <rect id="ic_minus.svg" width="28" height="2" class="white-icon" />
+			</svg>
+		</i>
+	</a> <span class="product-count {{alertErrorQty}}">{{selectedQuantity}}</span>
+		<a id="plus" href="" class="plus-sign" tabindex="3"
+		navigatable-with-keyboard tag="product" up="product.selectoption"
+		left="prev" down="next" ng-click="increaseQuantity()" last> <i
+			class="icons-style"> <svg class="plus-sign-icon"
+					xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">
+  				<path id="ic_plus.svg" class="white-icon"
+						d="M1700.49,119.5a1,1,0,0,1-.99-1,0.985,0.985,0,0,1,.99-0.99h12.01v-12a1,1,0,1,1,1.99,0v12h12.01a0.994,0.994,0,0,1,1,.99,1,1,0,0,1-1,1h-12.01v12a1,1,0,1,1-1.99,0v-12h-12.01Z"
+						transform="translate(-1699.5 -104.5)" />
+			</svg>
+		</i></a> <!-- <span class="stock-value">In Stock <span class="white-text">{{inStock}}</span> -->
+		<br> <span class="stock-value red-text">{{maxlimiterror}}</span>
+	</span> <span ng-show=isBudgetAvailable class="budget-pay"> <a
+		href="javascript:void(0);" id="budgetpay" ng-style="budgetPay"
+		navigatable-with-keyboard tag="product" up="prev"
+		left="video.videoView" down="footer.ordernow"
+		ng-click="showBudgetPayInfo()"> <i class="icon-style"> <svg
+					class="menu-icon" xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 30.844 31">
+						  <path id="ic_info_howtobuy.svg" class="violet-icon"
+						d="M181.381,785.645a0.626,0.626,0,0,1-.462.182h-9a0.62,0.62,0,0,1-.642-0.646v-3.229a0.618,0.618,0,0,1,.642-0.645h1.928v-6.458h-1.928a0.62,0.62,0,0,1-.642-0.646v-3.229a0.62,0.62,0,0,1,.642-0.646h6.426a0.62,0.62,0,0,1,.642.646v10.333h1.928a0.625,0.625,0,0,1,.462.181,0.632,0.632,0,0,1,.181.464v3.229A0.631,0.631,0,0,1,181.381,785.645Zm-2.57-18.082a0.626,0.626,0,0,1-.462.182h-3.856a0.621,0.621,0,0,1-.642-0.646V763.87a0.621,0.621,0,0,1,.642-0.646h3.856a0.62,0.62,0,0,1,.642.646V767.1A0.63,0.63,0,0,1,178.811,767.563Zm5.351-5.489a15.451,15.451,0,0,0-15.482,0,15.4,15.4,0,0,0-5.612,5.641,15.667,15.667,0,0,0,0,15.559,15.4,15.4,0,0,0,5.612,5.641,15.457,15.457,0,0,0,15.482,0,15.4,15.4,0,0,0,5.612-5.641,15.667,15.667,0,0,0,0-15.559A15.4,15.4,0,0,0,184.162,762.074Z"
+						transform="translate(-161 -760)" />
+						</svg>
+		</i> Also available on Budget Pay <span class="green-text">{{noOfEmi}}x{{budgetPrice}}</span>
+	</a>
+	</span>
+
+</div>

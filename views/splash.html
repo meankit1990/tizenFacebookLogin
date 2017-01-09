@@ -1,0 +1,26 @@
+<center>
+	<p style="font-size: 3em">
+
+		Your PIN will be displayed here <br /> <br /> {{pin}} <br /> <br />
+	<p ng-show=showCode style="font-size: 3em">
+		Go to <strong>{{webUrl}}</strong> and Enter the Code <br /> <br /> <br />
+
+		This Code will expire in {{timeout}} seconds.<br /> <br />
+	</p>
+	</p>
+	<button type="button" class="btn ng-scope ng-isolate-scope"
+		navigatable-with-keyboard="" tag="footer" id="ordernow" up="last"
+		right="next" ng-click="login()" tabindex="0">GENERATE PIN</button>
+
+
+
+	<br />
+	<p style="font-size: 2em" ng-show=showDetails>
+		Your Profile Details :<br /> <img ng-src={{productImage}}
+			alt="Procuct-Name" style="height: 200px; width: 200px;"
+			class="img-default" />
+			<br /> {{userName}}<br />
+		{{gender}}<br /> {{userEmail}}<br />
+		
+	</p>
+</center>

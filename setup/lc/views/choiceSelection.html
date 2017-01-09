@@ -1,0 +1,16 @@
+<div class="popup-shadow">
+	<div class="popup-selectItem">
+		<ul class="address-list popup-address-list">
+			<li ng-repeat="rec in selectionInfo"><a href=""
+				tabindex="{{$index}}"
+				down="{{$index != selectionInfo.length-1 && 'next'}}"
+				ng-click="dialogClose(rec)" navigatable-with-keyboard
+				up="{{$index > 0 && 'prev'}}" tag="selectItem"
+				class="shipping-address-popup">
+					<address>{{rec.size}}</address> <span class="selectcheck"></span><span
+					ng-if="rec.size == defaultSelected" class="selected"></span></span>
+
+			</a></li>
+		</ul>
+	</div>
+</div>

@@ -1,0 +1,70 @@
+<header>
+	<form ng-style="hideTopInput" class="top-form" method="post" action="#">
+		<div class="form-field">
+			<div class="tab-content {{alertErrorInput}}">
+				<label for="username" class="form-label">To Enable Order Now</label>
+				<span class="hide">{{inputError}}</span> <a tabindex="0"
+					id="username" class="div-focus" ng-click="opneKeyBoard()"
+					navigatable-with-keyboard ng-style="hideTopInput" tag="product"
+					down="next" left="header.username" href="javascript:void(0)"> <input
+					type="text" class="form-input" ng-model="username"
+					ng-change="saveUserName(username)"
+					placeholder="Enter phone number or email *"
+					onfocus="this.placeholder = ''"
+					onblur="this.placeholder = 'Enter Mobile Number or Email *'" />
+				</a>
+			</div>
+		</div>
+	</form>
+</header>
+<div class="home-content">
+	<h3>CURRENT ON - AIR PRODUCT</h3>
+
+	<div class="product-show">
+		<div class="product-details">
+			<div class="product-img">
+				<figure>
+					<img ng-src={{productImage}} alt="Procuct-Name"
+						style="height: 135px; width: 135px;" class="img-default" />
+					<figcaption>{{stockCode}}</figcaption>
+				</figure>
+			</div>
+			<div class="product-price">
+				START PRICE <span class="start-price"><strike>{{startPrice}}</strike></span>
+				LC PRICE <span class="lc-price green-text"><span>{{dollerPrice}}</span>{{centPrice}}</span>
+			</div>
+
+		</div>
+		<div class="product-description">{{productDescription}}</div>
+	</div>
+	<div class="{{alertErrorOption}}">
+		<span class="hide">{{choiceError}}</span> <a href="javascript:void(0)"
+			class="drop-down" navigatable-with-keyboard ng-style="hideSelection"
+			ng-show=showSelection tag="product" left="video.videoView"
+			tabindex="1" up="prev" down="product.plus" id="selectoption"
+			ng-click='selectChoice()'>{{selectedOption}}</a>
+	</div>
+	<span class="product-add"> <a href="javascript:void(0)"
+		class="mins-sign" navigatable-with-keyboard left="video.videoView"
+		tag="product" up="prev" right="next" down="next"
+		ng-click="decreaseQuantity()"> - </a> <span
+		class="product-count {{alertErrorQty}}">{{selectedQuantity}}</span> <a
+		id="plus" href="" class="plus-sign" tabindex="3"
+		navigatable-with-keyboard tag="product" up="product.selectoption"
+		left="prev" down="next" ng-click="increaseQuantity()"> + </a> <span
+		class="stock-value">In Stock <span class="white-text">{{inStock}}</span><br>
+			<span class="red-text">{{maxlimiterror}}</span>
+	</span>
+	</span> <span ng-show=isBudgetAvailable class="budget-pay"><span>Also
+			available on <br /> Budget Pay <span class="blue-text">{{noOfEmi}}x{{budgetPrice}}
+		</span>
+	</span><i class="icon-style budgetpay-icon"> <a
+			class="div-focus budget-pay-info" href="javascript:void(0)"
+			navigatable-with-keyboard tag="product" down="footer.ordernow"
+			up="prev" ng-click="showBudgetPayInfo()" id="budgetPayInfo" last><svg
+					class="menu-icon" xmlns="http://www.w3.org/2000/svg"
+					viewBox="0 0 29 29" preserveAspectRatio="xMidYMid meet">
+							<path class="white-icon"
+						d="M 14.5 29 C 6.525 29 0 22.475 0 14.5 C 0 6.525 6.525 0 14.5 0 C 22.475 0 29 6.525 29 14.5 C 29 22.475 22.475 29 14.5 29 Z M 14.5 2.9 C 8.12 2.9 2.9 8.12 2.9 14.5 C 2.9 20.88 8.12 26.1 14.5 26.1 C 20.88 26.1 26.1 20.88 26.1 14.5 C 26.1 8.12 20.88 2.9 14.5 2.9 Z M 13.05 13.05 L 15.95 13.05 L 15.95 21.75 L 13.05 21.75 L 13.05 13.05 Z M 13.05 7.25 L 15.95 7.25 L 15.95 10.15 L 13.05 10.15 L 13.05 7.25 Z" />
+						</svg> </a></i></span>
+</div>

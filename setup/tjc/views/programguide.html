@@ -1,0 +1,34 @@
+<div class="myprofile-pannel">
+	<div class="programguide-header">
+		<h2>PROGRAM GUIDE</h2>
+		<ul class="program-guide-select">
+			<li><span>DATE</span> <a href="javascript:void(0)" class="date">{{guideDate}}
+					{{guideMonth}}, {{guideYear}} </a></li>
+		</ul>
+	</div>
+	<div class="program-guide">
+
+		<ul class="program-guide-list header-list">
+			<li>
+				<div class="time">
+					<span>Time</span>
+				</div>
+				<div class="show">
+					<span>Title</span>
+				</div>
+			</li>
+		</ul>
+		<ul class="program-guide-list program-scroll">
+			<li ng-repeat="show in shows" ng-style="{{show.current}}"><a href="javascript:void(0)"
+				class="pg-focus" down="{{$index < shows.length-1 && 'next' || ''}}"
+				navigatable-with-keyboard
+				up="{{$index > 0 && 'prev'||'header.howtobuy'}}" tag="programGuide"
+				tabindex="{{$index}}" id="list{{$index}}"
+				ng-style="{{$index==0 && firstElement}}">
+					<div class="time">{{show.startTime}} - {{show.endTime}}</div>
+					<div class="show">{{show.name}}</div>
+			</a></li>
+		</ul>
+	</div>
+
+</div>
